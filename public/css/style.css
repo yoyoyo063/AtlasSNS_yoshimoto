@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+html {}
+
+body {}
+
+/* header */
+header {
+    background: #186AC9;
+    height: 150px;
+}
+
+summary {}
+
+#dropdown-items {
+    background-color: #727272;
+}
+
+/* main content */
+#row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container {
+    flex: 0 0 80%;
+}
+
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
+
+/* 投稿フォーム */
+.form-group {
+    height: 130px;
+}
+
+.button {
+    text-align: right;
+}
+
+input {
+    border: none;
+}
