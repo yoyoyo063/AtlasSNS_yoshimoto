@@ -9,8 +9,6 @@
             <div class="button">
             <input type ="image" name="submit" width="80" height="80" src="images/post.png"></input>
             </div>
-                    <!-- <button type="submit" class="btn btn-success pull-right"><img src="images/post.png" alt="写真" width="30%" height="30%"></button> -->
-
         </div>
         {!! Form::close() !!}
           @foreach ($list as $list)
@@ -18,8 +16,25 @@
      <td>{{ $list->post }}</td>
      <td>{{ $list->created_at }}</td>
      <td>{{ $list->updated_at }}</td>
-     <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を消去ます。よろしいでしょうか？')"><img src="images/trash-h.png" width="40" height="40"></a></td> <!--消去-->
+     <td>{{ $list->updated_at }}</td>
+
+      <div class="content">
+        <a class="js-modal-open" href="/post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="images/edit.png" width="40" height="40"></a>  <!-- 編集ボタン -->
+     <a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を消去ます。よろしいでしょうか？')"><img src="images/trash-h.png" width="40" height="40"></a><!--消去-->
+     </div>
+
 </tr>
 @endforeach
+<div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="/post/update" method="">
+                <textarea name="" class="modal_post"></textarea>
+                <input type="hidden" name="" class="modal_id" value="">
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+           <a class="js-modal-close" href="">閉じる</a>
+        </div>
     </div>
-@endsection
+    @endsection

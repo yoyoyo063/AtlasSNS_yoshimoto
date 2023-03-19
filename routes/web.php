@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/top','PostsController@index');
 Route::post('/post/create', 'PostsController@create');//投稿
 Route::get('post/{id}/delete','PostsController@delete');//つぶやきの消去
-Route::get('post/{ID}/update-form', 'PostController@updateForm');//つぶやきの編集
+Route::post('post/update', 'PostController@update');//つぶやきの編集
 
 Route::get('/profile','UsersController@profile');
 
